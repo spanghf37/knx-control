@@ -20,12 +20,13 @@ var myknxconnection = knx.Connection({
 			}
 			datetime();
 
-			function checkdp(dest, knxconnection, etsjson) {
-				console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, etsjson));
+			function checkdp(dest) {
+				console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
-					dpt: module_myknx.knxgaTodpt(dest, etsjson)
-				});
+					dpt: module_myknx.knxgaTodpt(dest, ets),
+					autoread: true
+				}, myknxconnection);
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 				});
