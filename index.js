@@ -1,5 +1,5 @@
 require('dotenv').config();
-require("./ets.json);
+require("./ets.json");
 
 var knx = require('knx');
 //var dpts = require('knx/src/dptlib'); // pour utilisation fonction "dpts.fromBuffer()" qui permet de convertir données buffer KNX dans les unités du DPT correspondant
