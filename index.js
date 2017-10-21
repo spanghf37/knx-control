@@ -21,7 +21,7 @@ var myknxconnection = knx.Connection({
 			datetime();
 
 			function checkdp(dest) {
-				console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
+				//console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
 					dpt: module_myknx.knxgaTodpt(dest, ets),
@@ -30,7 +30,7 @@ var myknxconnection = knx.Connection({
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 				});
-				setTimeout(checkdp, 10000);
+				setTimeout(checkdp, 3000);
 			}
 			checkdp("2/4/9");
 			checkdp("2/4/14");
