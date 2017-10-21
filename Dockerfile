@@ -1,6 +1,6 @@
 FROM node:alpine
 
-RUN npm install knx request mysql dotenv csv-parse csv-headers util fs path async co leftpad
+RUN npm install knx request dotenv
 
 RUN apk add --no-cache bash
 
