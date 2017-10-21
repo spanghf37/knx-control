@@ -24,8 +24,7 @@ var myknxconnection = knx.Connection({
 				//console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
-					dpt: module_myknx.knxgaTodpt(dest, ets),
-					autoread: true
+					dpt: module_myknx.knxgaTodpt(dest, ets)
 				}, myknxconnection);
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
