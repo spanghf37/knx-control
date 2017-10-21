@@ -1,17 +1,17 @@
 version: "2"
 services:
-  db:
-    image: amd64/mysql:latest
+  #db:
+  #  image: amd64/mysql:latest
     #environment:
       #MYSQL_ROOT_PASSWORD: myrootpassword
-    volumes:
-      - ./knx-db-data:/var/lib/mysql
-    env_file:
-      - 'default.docker-env'
-    ports:
-      - 3306:3306
-    expose:
-      - "3306"
+  #  volumes:
+  #    - ./knx-db-data:/var/lib/mysql
+  #  env_file:
+  #    - 'default.docker-env'
+  #  ports:
+  #    - 3306:3306
+  #  expose:
+  #    - "3306"
   node:
     build: .
     #working_dir: /home/node/app
@@ -23,4 +23,4 @@ services:
       - 'default.docker-env'
     depends_on:
       - db
-    command: ["./wait-for-it.sh", "knxcontrol_db_1:3306", "--", "npm", "start"]
+    command: ["npm", "start"]
