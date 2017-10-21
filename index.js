@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config();
+require("./ets.json);
 
 var knx = require('knx');
 //var dpts = require('knx/src/dptlib'); // pour utilisation fonction "dpts.fromBuffer()" qui permet de convertir données buffer KNX dans les unités du DPT correspondant
@@ -50,7 +51,7 @@ var myknxconnection = knx.Connection({
     },
     event: function(evt, src, dest, value) {
       console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
-      module_myknx.insert_emoncms(evt, src, dest, value);
+      module_myknx.insert_emoncms(evt, src, dest, value, ets);
     }
   }
 });
