@@ -18,20 +18,20 @@ var myknxconnection = knx.Connection({
 				setTimeout(datetime, 300000);
 			}
 			datetime();
-			function checkdp(dest, knxconnection, etsjson) {
-				console.log("****** knxgaTodpt " + module_myknx.knxgaTodpt(dest, etsjson));
-				var dp = new knx.Datapoint({
-					ga: dest,
-					dpt: module_myknx.knxgaTodpt(dest, etsjson)
-				}, knxconnection);
+			//function checkdp(dest, knxconnection, etsjson) {
+			//	console.log("****** knxgaTodpt " + module_myknx.knxgaTodpt(dest, etsjson));
+			//	var dp = new knx.Datapoint({
+			//		ga: dest,
+			//		dpt: module_myknx.knxgaTodpt(dest, etsjson)
+			//	}, knxconnection);
 				// Now send off a couple of requests:
-				dp.read((src, value) => {
-					console.log("**** RESPONSE %j reports current value: %j", src, value);
-				});
-				setTimeout(checkdp, 10000)
-			}
-			checkdp("2/4/9", myknxconnection, ets);
-			checkdp("2/4/14", myknxconnection, ets);
+			//	dp.read((src, value) => {
+			//		console.log("**** RESPONSE %j reports current value: %j", src, value);
+			//	});
+			//	setTimeout(checkdp, 10000)
+			//}
+			//checkdp("2/4/9", myknxconnection, ets);
+			//checkdp("2/4/14", myknxconnection, ets);
 		},
 		event: function(evt, src, dest, value) {
 			console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
