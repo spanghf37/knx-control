@@ -37,6 +37,9 @@ var myknxconnection = knx.Connection({
 		event: function(evt, src, dest, value) {
 			console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
 			module_myknx.insert_emoncms(evt, src, dest, value);
+		},
+		error: function(connstatus) {
+			console.log("**** ERROR: %j", connstatus);
 		}
 	}
 });
