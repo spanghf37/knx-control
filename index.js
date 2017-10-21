@@ -1,5 +1,5 @@
 require('dotenv').config();
-var ets = require("./ets"); // JSON export from ETS CSV export
+var ets = require("./et"); // JSON export from ETS CSV export
 var knx = require('knx');
 //var dpts = require('knx/src/dptlib'); // pour utilisation fonction "dpts.fromBuffer()" qui permet de convertir données buffer KNX dans les unités du DPT correspondant
 var module_myknx = require('module_myknx');
