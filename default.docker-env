@@ -1,9 +1,1 @@
 # Default docker enviroment variables, change in production enviroment
-
-# MySQL database 
-MYSQL_HOST=db
-MYSQL_PORT=3306
-MYSQL_DATABASE=knx
-MYSQL_USER=knx
-MYSQL_PASSWORD=mypassword
-MYSQL_RANDOM_ROOT_PASSWORD=no
