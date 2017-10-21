@@ -20,7 +20,7 @@ var myknxconnection = knx.Connection({
 			datetime();
 			function checkdp(dest, knxconnection) {
 				var dp = new knx.Datapoint({
-					ga: dest
+					ga: dest,
 					dpt: ""
 				}, knxconnection);
 				// Now send off a couple of requests:
