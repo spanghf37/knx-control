@@ -29,7 +29,7 @@ var myknxconnection = knx.Connection({
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 				});
-				setTimeout(checkdp, 10000)
+				setTimeout(checkdp, 10000);
 			}
 			checkdp("2/4/9", myknxconnection, ets);
 			checkdp("2/4/14", myknxconnection, ets);
