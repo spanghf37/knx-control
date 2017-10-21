@@ -11,10 +11,6 @@ var myknxconnection = knx.Connection({
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
-			event: function(evt, src, dest, value) {
-				console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
-				module_myknx.insert_emoncms(evt, src, dest, value);
-			}
 
 			function datetime() {
 				myknxconnection.write("8/0/10", new Date(), "DPT10.001");
