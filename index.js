@@ -19,6 +19,7 @@ var myknxconnection = knx.Connection({
 			}
 			datetime();
 			function checkdp(dest, knxconnection) {
+				console.log("****** knxgaTodpt " + module_myknx.knxgaTodpt(dest,ets));
 				var dp = new knx.Datapoint({
 					ga: dest,
 					dpt: module_myknx.knxgaTodpt(dest,ets)
