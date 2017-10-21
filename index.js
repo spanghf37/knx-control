@@ -21,7 +21,7 @@ var myknxconnection = knx.Connection({
 			function checkdp(dest, knxconnection) {
 				var dp = new knx.Datapoint({
 					ga: dest,
-					dpt: ""
+					dpt: module_myknx.knxgaTodpt(dest,ets)
 				}, knxconnection);
 				// Now send off a couple of requests:
 				dp.read((src, value) => {
