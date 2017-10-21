@@ -21,11 +21,11 @@ var myknxconnection = knx.Connection({
 			datetime();
 
 			function checkdp(dest, knxconnection, etsjson) {
-				console.log("****** knxgaTodpt " + module_myknx.knxgaTodpt(dest, etsjson));
+				console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, etsjson));
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
 					dpt: module_myknx.knxgaTodpt(dest, etsjson)
-				}, knxconnection);
+				});
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 				});
