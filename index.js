@@ -6,11 +6,16 @@ var module_myknx = require('module_myknx');
 
 var myknxconnection = knx.Connection({
 	ipAddr: process.env.KNXROUTER_HOST,
-	ipPort: 3671,
-	physAddr: "1.1.50",
+	ipPort: process.env.KNXROUTER_PORT,
+	physAddr: process.env.KNX_SOURCEADDRESS,
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
+			event: function(evt, src, dest, value) {
+				console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
+				module_myknx.insert_emoncms(evt, src, dest, value);
+			}
+
 			function datetime() {
 				myknxconnection.write("8/0/10", new Date(), "DPT10.001");
 				myknxconnection.write("8/0/11", new Date(), "DPT11.001");
@@ -18,6 +23,7 @@ var myknxconnection = knx.Connection({
 				setTimeout(datetime, 300000);
 			}
 			datetime();
+
 			function checkdp(dest, knxconnection, etsjson) {
 				console.log("****** knxgaTodpt " + module_myknx.knxgaTodpt(dest, etsjson));
 				var dp = new knx.Datapoint({
