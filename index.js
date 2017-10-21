@@ -9,7 +9,6 @@ var module_myknx = require('module_myknx');
 
 var myknxconnection = knx.Connection({
   ipAddr: process.env.KNXROUTER_HOST, ipPort: 3671,
-  debug: true,
   physAddr: "1.1.50",
   handlers: {
     connected: function() {
