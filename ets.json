@@ -1050,6 +1050,20 @@
     "knx_ga_src": ""
   },
   {
+    "knx_ga_groupname": "Logique Piscine Autorisation LED selon Volet",
+    "knx_ga_address": "2/4/15",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-2",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
     "knx_ga_groupname": "ARROSAGE JARDIN",
     "knx_ga_address": "2/5/-",
     "knx_ga_central": "",
