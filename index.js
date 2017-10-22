@@ -28,11 +28,24 @@ var myknxconnection = knx.Connection({
 				}, myknxconnection);
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
+					return value;
 				});
 				setTimeout(function() { checkdp(dest); }, 30000);
 			}
 			checkdp("2/4/9");
+			console.log(" **** read value checkdp : " + checkdp("2/4/9"));
 			checkdp("2/4/14");
+			
+			//function setdp(dest, value) {
+			//	var dp = new knx.Datapoint({
+			//		ga: dest.toString(),
+			//		dpt: module_myknx.knxgaTodpt(dest, ets)
+			//	}, myknxconnection);
+			//	dp.read((src, value) => {
+			//		console.log("**** RESPONSE %j reports current value: %j", src, value);
+			//	});
+			//}
+			//setdp("2/4/15", 
 		},
 		event: function(evt, src, dest, value) {
 			console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
