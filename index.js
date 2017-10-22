@@ -22,14 +22,16 @@ var myknxconnection = knx.Connection({
 
 			function checkdp(dest) {
 				//console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
+				var val;
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
 					dpt: module_myknx.knxgaTodpt(dest, ets)
 				}, myknxconnection);
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
-					return value;
+					val = value;
 				});
+				return val;
 				setTimeout(function() { checkdp(dest); }, 30000);
 			}
 			checkdp("2/4/9");
