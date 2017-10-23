@@ -66,8 +66,9 @@ var myknxconnection = knx.Connection({
 						myknxconnection.write(logicga, 1);
 					}
 				});
-				dpledpoolstate.read((src, value) => {
-					if (value === 0){
+				dpledpoolstate.read( function (response) {
+					console.log("KNX response: %j", response);
+					if (response === 0){
 						myknxconnection.write(ledpoolswitch, "Off", "DPT1.001");
 					}
 					else {
