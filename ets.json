@@ -140,6 +140,20 @@
     "knx_ga_src": ""
   },
   {
+    "knx_ga_groupname": "LED Groupe Jardin Piscine",
+    "knx_ga_address": "0/0/9",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-1",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
     "knx_ga_groupname": "ETATS ON/OFF",
     "knx_ga_address": "0/1/-",
     "knx_ga_central": "",
@@ -258,6 +272,20 @@
     "knx_ga_unfiltered": "",
     "knx_ga_description": "",
     "knx_ga_datapointtype": "",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Etat - LED Groupe Jardin Piscine",
+    "knx_ga_address": "0/1/9",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-11",
     "knx_ga_security": "Auto",
     "knx_ga_id": "",
     "knx_ga_value": "",
