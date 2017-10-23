@@ -64,7 +64,7 @@ var myknxconnection = knx.Connection({
 					}
 				});
 				setTimeout(function() {
-					setlogicledpool(logicga, coverposition);
+					setlogicledpool(logicga, coverposition, ledpoolswitch);
 				}, 30000);
 			}
 			setlogicledpool("2/4/15", "2/4/9", "0/0/6");
