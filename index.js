@@ -66,8 +66,13 @@ var myknxconnection = knx.Connection({
 						dpledpoolstate.read((src, statevalue) => {
 							if (statevalue === 0) {
 								myknxconnection.write(ledpoolswitch, 0);
+								myknxconnection.write(logicga, 1);
 							}
-							myknxconnection.write(logicga, 1);
+							else {
+								myknxconnection.write(logicga, 1);
+								myknxconnection.write(ledpoolswitch, 1);
+							}
+
 						});
 					}
 				});
