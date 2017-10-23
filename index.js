@@ -31,12 +31,9 @@ var myknxconnection = knx.Connection({
 				dp.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 				});
-				console.log("**** value of val " + val);
 				setTimeout(function() { checkdp(dest); }, 30000);
-				return val;
 			}
 			checkdp("2/4/9");
-			console.log(" **** read value checkdp : " + checkdp("2/4/9"));
 			checkdp("2/4/14");
 			
 			//Mise à jour objet "logic1" du AKU 16 : LED piscine autorisée selon état rideau piscine.
