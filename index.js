@@ -63,20 +63,18 @@ var myknxconnection = knx.Connection({
 						myknxconnection.write(logicga, 0);
 					} else { //rideau ouvert ou partiellement ouvert
 						console.log("**** rideau ouvert ou partiellement ouvert - value : " + value);
-						console.log("**** ledpoolswitch ga : " + ledpoolswitch);
 						myknxconnection.write(logicga, 1);
-						myknxconnection.read("0/1/9", (src, responsevalue) => {
-							console.log("**** ledpoolswitch ga dans fonction : " + ledpoolswitch);
-							if (responsevalue === 0) {
-								myknxconnection.write("0/0/6", "Off", "DPT1.001");
-							}
-							else {
-								myknxconnection.write("0/0/6", "On", "DPT1.001");
-							}
-
-						});
 					}
 				});
+				dpledpoolstate.read((src, value) => {
+					if (value === 0){
+						myknxconnection.write(ledpoolswitch, "Off", "DPT1.001");
+					}
+					else {
+						myknxconnection.write(ledpoolswitch, "On", "DPT1.001");
+					}
+				});
+					
 				setTimeout(function() {
 					setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate);
 				}, 30000);
