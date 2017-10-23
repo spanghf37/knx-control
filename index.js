@@ -44,7 +44,7 @@ var myknxconnection = knx.Connection({
     					status_ga: statusga,
    					dpt: "DPT1.001",
     					autoread: true
-  				}, connection);
+  				}, myknxconnection);
   				dp.on('change', (oldvalue, newvalue) => {
     					console.log("**** %s current value: %j", groupadress, newvalue);
     					console.log("options.ga==%s", dp.options.ga);
