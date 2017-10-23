@@ -5,8 +5,8 @@ var knx = require('knx');
 var module_myknx = require('module_myknx');
 
 var myknxconnection = knx.Connection({
-	ipAddr: process.env.KNXROUTER_HOST,
-	ipPort: process.env.KNXROUTER_PORT,
+	//ipAddr: process.env.KNXROUTER_HOST,
+	//ipPort: process.env.KNXROUTER_PORT,
 	physAddr: process.env.KNX_SOURCEADDRESS,
 	handlers: {
 		connected: function() {
