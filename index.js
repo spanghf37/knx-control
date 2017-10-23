@@ -85,9 +85,9 @@ var myknxconnection = knx.Connection({
 					}
 				});
 				console.log("***** je ne veux pas donner la valeur ");
-				dpledpoolstate.read( function (response) {
-					console.log("KNX response: %j", response);
-					if (response === 0){
+				dpledpoolstate.read((statesrc, statevalue) => {
+					console.log("**** FONCTION RESPONSE %j reports current value: %j", statesrc, statevalue);
+					if (statevalue === 0){
 						myknxconnection.write(ledpoolswitch, "Off", "DPT1.001");
 					}
 					else {
