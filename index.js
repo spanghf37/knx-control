@@ -65,12 +65,12 @@ var myknxconnection = knx.Connection({
 						console.log("**** rideau ouvert ou partiellement ouvert - value : " + value);
 						dpledpoolstate.read((src, statevalue) => {
 							if (statevalue === 0) {
-								myknxconnection.write(ledpoolswitch, 0);
+								myknxconnection.write(ledpoolswitch, "Off", "DPT1.001");
 								myknxconnection.write(logicga, 1);
 							}
 							else {
 								myknxconnection.write(logicga, 1);
-								myknxconnection.write(ledpoolswitch, 1);
+								myknxconnection.write(ledpoolswitch, "On", "DPT1.001");
 							}
 
 						});
