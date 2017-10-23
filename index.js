@@ -70,8 +70,10 @@ var myknxconnection = knx.Connection({
 				}, myknxconnection);
 				var dpledpoolstate = new knx.Datapoint({
 					ga: ledpoolstate.toString(),
-					dpt: module_myknx.knxgaTodpt(ledpoolstate, ets)
+					dpt: module_myknx.knxgaTodpt(ledpoolstate, ets),
+					autoread: true
 				}, myknxconnection);
+				console.log("******* ******* test " + dpledpoolstate.current_value);
 				dpcoverposition.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 					if (value === 255) { //rideau fermé
@@ -82,6 +84,7 @@ var myknxconnection = knx.Connection({
 						myknxconnection.write(logicga, 1);
 					}
 				});
+				console.log("***** je ne veux pas donner la valeur ");
 				dpledpoolstate.read( function (response) {
 					console.log("KNX response: %j", response);
 					if (response === 0){
