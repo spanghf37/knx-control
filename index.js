@@ -8,9 +8,9 @@ var myknxconnection = knx.Connection({
 	//ipAddr: process.env.KNXROUTER_HOST,
 	//ipPort: process.env.KNXROUTER_PORT,
 	debug: true,
-	interface: 'eth0',
-	useMulticastTunneling: true,
-	physAddr: process.env.KNX_SOURCEADDRESS,
+	//interface: 'eth0',
+	//useMulticastTunneling: true,
+	//physAddr: process.env.KNX_SOURCEADDRESS,
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
