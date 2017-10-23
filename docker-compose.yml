@@ -6,5 +6,5 @@ services:
       - ./:/home/node/app
     env_file:
       - 'default.docker-env'
-    network_mode: "host"
+    # network_mode: "host"
     command: ["npm", "start"]
