@@ -68,7 +68,7 @@ var myknxconnection = knx.Connection({
 									myknxconnection.write(ledpoolswitch, 0);
 								}
 								myknxconnection.write(logicga, 1);
-							}
+							});
 						}
 					}
 				});
