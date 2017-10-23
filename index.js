@@ -54,7 +54,7 @@ var myknxconnection = knx.Connection({
 				}, myknxconnection);
 				dpcoverposition.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
-					if (value === 100) { //rideau fermé
+					if (value === 255) { //rideau fermé
 						console.log("**** rideau fermé - value : " + value);
 						myknxconnection.write(logicga, 0);
 					} else { //rideau ouvert ou partiellement ouvert
