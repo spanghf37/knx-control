@@ -99,7 +99,7 @@ var myknxconnection = knx.Connection({
 					setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate);
 				}, 30000);
 			}
-			setlogicledpool("2/4/15", "2/4/9", "0/0/6", "0/1/9");
+			setlogicledpool("2/4/15", "2/4/9", "0/0/6", "0/1/1");
 
 		},
 		event: function(evt, src, dest, value) {
