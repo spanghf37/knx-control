@@ -9,6 +9,7 @@ var myknxconnection = knx.Connection({
 	//ipPort: process.env.KNXROUTER_PORT,
 	//debug: true,
 	interface: 'eth0',
+	useMulticastTunneling: true,
 	physAddr: process.env.KNX_SOURCEADDRESS,
 	handlers: {
 		connected: function() {
