@@ -39,7 +39,7 @@ var myknxconnection = knx.Connection({
 			checkdp("2/4/14");
 
 			//Mise à jour objet "logic1" du AKU 16 : LED piscine autorisée selon état rideau piscine.
-			function setlogicledpool(logicga, coverposition, ledpoolswitch) {
+			function setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate) {
 				var dplogicga = new knx.Datapoint({
 					ga: logicga.toString(),
 					dpt: module_myknx.knxgaTodpt(logicga, ets)
@@ -52,6 +52,10 @@ var myknxconnection = knx.Connection({
 					ga: ledpoolswitch.toString(),
 					dpt: module_myknx.knxgaTodpt(ledpoolswitch, ets)
 				}, myknxconnection);
+				var dpledpoolstate = new knx.Datapoint({
+					ga: ledpoolstate.toString(),
+					dpt: module_myknx.knxgaTodpt(ledpoolstate, ets)
+				}, myknxconnection);
 				dpcoverposition.read((src, value) => {
 					console.log("**** RESPONSE %j reports current value: %j", src, value);
 					if (value === 255) { //rideau fermé
@@ -59,15 +63,20 @@ var myknxconnection = knx.Connection({
 						myknxconnection.write(logicga, 0);
 					} else { //rideau ouvert ou partiellement ouvert
 						console.log("**** rideau ouvert ou partiellement ouvert - value : " + value);
-						myknxconnection.write(logicga, 1);
-						myknxconnection.write(ledpoolswitch, 0);
+						dpledpoolstate.read((src, statevalue) => {
+								if (statevalue === 0) {
+									myknxconnection.write(ledpoolswitch, 0);
+								}
+								myknxconnection.write(logicga, 1);
+							}
+						}
 					}
 				});
 				setTimeout(function() {
-					setlogicledpool(logicga, coverposition, ledpoolswitch);
+					setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate);
 				}, 30000);
 			}
-			setlogicledpool("2/4/15", "2/4/9", "0/0/6");
+			setlogicledpool("2/4/15", "2/4/9", "0/0/6", "0/1/6");
 
 		},
 		event: function(evt, src, dest, value) {
