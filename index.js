@@ -24,8 +24,6 @@ var myknxconnection = knx.Connection({
 			datetime();
 
 			function checkdp(dest) {
-				//console.log("****** knxgaTodpt " + " dest : " + dest.toString() + " knxgaTodpt : " + module_myknx.knxgaTodpt(dest, ets));
-				var val;
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
 					dpt: module_myknx.knxgaTodpt(dest, ets)
@@ -41,6 +39,31 @@ var myknxconnection = knx.Connection({
 			checkdp("2/4/9");
 			console.log(" **** read value checkdp : " + checkdp("2/4/9"));
 			checkdp("2/4/14");
+			
+			//Mise à jour objet "logic1" du AKU 16 : LED piscine autorisée selon état rideau piscine.
+			function setlogicledpool(logicga, coverposition) {
+				var dplogicga = new knx.Datapoint({
+					ga: logicga.toString(),
+					dpt: module_myknx.knxgaTodpt(logicga, ets)
+				}, myknxconnection);
+				var dpcoverposition = new knx.Datapoint({
+					ga: coverposition.toString(),
+					dpt: module_myknx.knxgaTodpt(coverposition, ets)
+				}, myknxconnection);
+				dpcoverposition.read((src, value) => {
+					console.log("**** RESPONSE %j reports current value: %j", src, value);
+					if(value === 100) { //rideau fermé
+					console.log("**** rideau fermé - value : " + value);
+						myknxconnection.write(logicga, 0);
+					}
+					else { //rideau ouvert ou partiellement ouvert
+						console.log("**** rideau ouvert ou partiellement ouvert - value : " + value);
+						myknxconnection.write(logicga, 1);			
+					}
+				});
+				setTimeout(function() { checkdp(dest); }, 30000);
+			}			
+			setlogicledpool("2/4/15","2/4/9");
 			
 			//function setdp(dest, value) {
 			//	var dp = new knx.Datapoint({
