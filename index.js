@@ -8,7 +8,7 @@ var myknxconnection = knx.Connection({
 	//ipAddr: process.env.KNXROUTER_HOST,
 	//ipPort: process.env.KNXROUTER_PORT,
 	//debug: true,
-	interface: 'eth0',
+	interface: 'docker0',
 	physAddr: process.env.KNX_SOURCEADDRESS,
 	handlers: {
 		connected: function() {
