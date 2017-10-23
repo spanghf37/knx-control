@@ -37,6 +37,22 @@ var myknxconnection = knx.Connection({
 			}
 			checkdp("2/4/9");
 			checkdp("2/4/14");
+			
+			function setupDatapoint(groupadress, statusga) {
+  				var dp = new knx.Datapoint({
+    					ga: groupadress,
+    					status_ga: statusga,
+   					dpt: "DPT1.001",
+    					autoread: true
+  				}, connection);
+  				dp.on('change', (oldvalue, newvalue) => {
+    					console.log("**** %s current value: %j", groupadress, newvalue);
+    					console.log("options.ga==%s", dp.options.ga);
+  				});
+  				return dp;
+			}
+			setupDatapoint("0/0/6", "0/1/6");
+			console.log("**** *********** : " + setupDatapoint("0/0/6", "0/1/6"));
 
 			//Mise à jour objet "logic1" du AKU 16 : LED piscine autorisée selon état rideau piscine.
 			function setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate) {
