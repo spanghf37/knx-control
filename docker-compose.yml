@@ -6,4 +6,4 @@ services:
       - ./:/home/node/app
     env_file:
       - 'default.docker-env'
-    # command: ["npm", "start"]
+    command: ["npm", "start"]
