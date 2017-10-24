@@ -72,7 +72,7 @@ var myknxconnection = knx.Connection({
 				}, myknxconnection);
 				console.log("******* ******* test " + dpledpoolstate.current_value);
 				dpcoverposition.read((src, value) => {
-					console.log("**** RESPONSE %j reports current value: %j", src, value);
+					console.log("**** RESPONSE %j reports current value position rideau : %j", src, value);
 					if (value === 255) { //rideau fermé
 						console.log("**** rideau fermé - value : " + value);
 						myknxconnection.write(logicga, 0);
