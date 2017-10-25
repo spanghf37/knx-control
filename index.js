@@ -29,7 +29,7 @@ var myknxconnection = knx.Connection({
 					dpt: module_myknx.knxgaTodpt(dest, ets)
 				}, myknxconnection);
 				dp.read((src, value) => {
-					console.log("**** RESPONSE %j reports current value: %j", src, value);
+					console.log("**** GA %j reports current value: %j", dest.toString(), value);
 				});
 				setTimeout(function() {
 					checkdp(dest);
