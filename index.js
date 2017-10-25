@@ -33,24 +33,24 @@ var myknxconnection = knx.Connection({
 				});
 				setTimeout(function() {
 					checkdp(dest);
-				}, 30000);
+				}, 300000);
 			}
-			checkdp("2/4/9");
-			checkdp("2/4/14");
+			checkdp("2/4/9"); //vérification état ouverture volet piscine
+			checkdp("2/4/14"); //vérification verrouillage de mouvement volet piscine
 			
-			function setupDatapoint(groupadress, statusga) {
-  				var dp = new knx.Datapoint({
-    					ga: groupadress,
-    					status_ga: statusga,
-   					dpt: "DPT1.001",
-    					autoread: true
-  				}, myknxconnection);
-  				dp.on('change', (oldvalue, newvalue) => {
-    					console.log("**** %s current value: %j", groupadress, newvalue);
-    					console.log("options.ga==%s", dp.options.ga);
-  				});
-  				return dp;
-			}
+			//function setupDatapoint(groupadress, statusga) {
+  			//	var dp = new knx.Datapoint({
+    			//		ga: groupadress,
+    			//		status_ga: statusga,
+   			//		dpt: "DPT1.001",
+    			//		autoread: true
+  			//	}, myknxconnection);
+  			//	dp.on('change', (oldvalue, newvalue) => {
+    			//		console.log("**** %s current value: %j", groupadress, newvalue);
+    			//		console.log("options.ga==%s", dp.options.ga);
+  			//	});
+  			//	return dp;
+			//}
 
 			//Mise à jour objet "logic1" du AKU 16 : LED piscine autorisée selon état rideau piscine.
 			function setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate) {
@@ -70,27 +70,18 @@ var myknxconnection = knx.Connection({
 					ga: ledpoolstate.toString(),
 					dpt: module_myknx.knxgaTodpt(ledpoolstate, ets)
 				}, myknxconnection);
-				console.log("******* ******* test " + dpledpoolstate.current_value);
 				dpcoverposition.read((src, value) => {
-					console.log("**** RESPONSE %j reports current value position rideau : %j", src, value);
 					if (value === 255) { //rideau fermé
-						console.log("**** rideau fermé - value : " + value);
 						myknxconnection.write(logicga, 0);
 					} else { //rideau ouvert ou partiellement ouvert
-						console.log("**** rideau ouvert ou partiellement ouvert - value : " + value);
 						myknxconnection.write(logicga, 1);
 					}
 				});
-				console.log("***** je ne veux pas donner la valeur ");
 				dpledpoolstate.read((statesrc, statevalue) => {
-					console.log("**** FONCTION RESPONSE %j reports current value: %j", statesrc, statevalue);
-					console.log(" statevalue : " + statevalue);
 					if (statevalue === 0){
-						console.log(" j'arrete tout !!!!");
 						myknxconnection.write(ledpoolswitch, 0);
 					}
 					else {
-						console.log(" je démarre tout !!!!");
 						myknxconnection.write(ledpoolswitch, 1);
 					}
 				});
