@@ -1,3 +1,6 @@
+// Export CSV to JSON (http://www.csvjson.com/csv2json) - CSV saved as UTF8 with Notepad - first line of CSV needs to be:
+// knx_ga_groupname,knx_ga_address,knx_ga_central,knx_ga_unfiltered,knx_ga_description,knx_ga_datapointtype,knx_ga_security,knx_ga_id,knx_ga_value,knx_ga_dptsubtypeunit,knx_ga_timestamp,knx_ga_src
+
 [
   {
     "knx_ga_groupname": "ECLAIRAGES",
@@ -868,20 +871,6 @@
     "knx_ga_src": ""
   },
   {
-    "knx_ga_groupname": "Piscine pompe",
-    "knx_ga_address": "2/4/0",
-    "knx_ga_central": "",
-    "knx_ga_unfiltered": "",
-    "knx_ga_description": "",
-    "knx_ga_datapointtype": "DPST-1-1",
-    "knx_ga_security": "Auto",
-    "knx_ga_id": "",
-    "knx_ga_value": "",
-    "knx_ga_dptsubtypeunit": "",
-    "knx_ga_timestamp": "",
-    "knx_ga_src": ""
-  },
-  {
     "knx_ga_groupname": "Piscine pompe à chaleur",
     "knx_ga_address": "2/4/1",
     "knx_ga_central": "",
@@ -896,12 +885,12 @@
     "knx_ga_src": ""
   },
   {
-    "knx_ga_groupname": "Etat piscine pompe",
+    "knx_ga_groupname": "Piscine pompe nettoyage intégré",
     "knx_ga_address": "2/4/2",
     "knx_ga_central": "",
     "knx_ga_unfiltered": "",
     "knx_ga_description": "",
-    "knx_ga_datapointtype": "DPST-1-11",
+    "knx_ga_datapointtype": "",
     "knx_ga_security": "Auto",
     "knx_ga_id": "",
     "knx_ga_value": "",
@@ -1092,6 +1081,90 @@
     "knx_ga_src": ""
   },
   {
+    "knx_ga_groupname": "Piscine pompe filtration",
+    "knx_ga_address": "2/4/16",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-1",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Etat piscine pompe filtration",
+    "knx_ga_address": "2/4/17",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-11",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Piscine pompe nettoyage intégré",
+    "knx_ga_address": "2/4/18",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-1",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Etat piscine nettoyage intégré",
+    "knx_ga_address": "2/4/19",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-11",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Piscine groupe nettoyage intégré",
+    "knx_ga_address": "2/4/20",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-1",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
+    "knx_ga_groupname": "Etat piscine groupe nettoyage intégré",
+    "knx_ga_address": "2/4/21",
+    "knx_ga_central": "",
+    "knx_ga_unfiltered": "",
+    "knx_ga_description": "",
+    "knx_ga_datapointtype": "DPST-1-11",
+    "knx_ga_security": "Auto",
+    "knx_ga_id": "",
+    "knx_ga_value": "",
+    "knx_ga_dptsubtypeunit": "",
+    "knx_ga_timestamp": "",
+    "knx_ga_src": ""
+  },
+  {
     "knx_ga_groupname": "ARROSAGE JARDIN",
     "knx_ga_address": "2/5/-",
     "knx_ga_central": "",
@@ -1178,34 +1251,6 @@
   {
     "knx_ga_groupname": "Etat Arrosage vanne 2",
     "knx_ga_address": "2/5/5",
-    "knx_ga_central": "",
-    "knx_ga_unfiltered": "",
-    "knx_ga_description": "",
-    "knx_ga_datapointtype": "DPST-1-11",
-    "knx_ga_security": "Auto",
-    "knx_ga_id": "",
-    "knx_ga_value": "",
-    "knx_ga_dptsubtypeunit": "",
-    "knx_ga_timestamp": "",
-    "knx_ga_src": ""
-  },
-  {
-    "knx_ga_groupname": "Etat Arrosage vanne 3",
-    "knx_ga_address": "2/5/6",
-    "knx_ga_central": "",
-    "knx_ga_unfiltered": "",
-    "knx_ga_description": "",
-    "knx_ga_datapointtype": "DPST-1-11",
-    "knx_ga_security": "Auto",
-    "knx_ga_id": "",
-    "knx_ga_value": "",
-    "knx_ga_dptsubtypeunit": "",
-    "knx_ga_timestamp": "",
-    "knx_ga_src": ""
-  },
-  {
-    "knx_ga_groupname": "Etat Arrosage vanne 4",
-    "knx_ga_address": "2/5/7",
     "knx_ga_central": "",
     "knx_ga_unfiltered": "",
     "knx_ga_description": "",
