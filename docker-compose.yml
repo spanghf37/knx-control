@@ -56,4 +56,4 @@ services:
 volumes:
   #knxd:
   homebridge:
-  knx_control:
+  knx-control:
