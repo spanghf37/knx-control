@@ -1,9 +1,59 @@
-version: "2"
+version: '2.1'
+
 services:
-  node:
+  
+  # knx_control
+  knx_control:
     build: .
+    restart: always
+    network_mode: host
+    #healthcheck:
+      #test: "curl -f http://localhost:18081"
+      #interval: 5s
+      #timeout: 5s
+      #retries: 20
+    restart: always
     volumes:
-      - ./:/home/node/app
-    env_file:
-      - 'default.docker-env'
-    command: ["npm", "start"]
+      - /home/docker/knx_control:/home/node/app
+    depends_on:
+      knxd:
+        condition: service_healthy
+      homebridge-knx:
+        condition: service_healthy
+        
+  # homebridge-knx
+  homebridge-knx:
+    image: spanghf37/homebridge-knx:amd64
+    restart: always
+    network_mode: host
+    healthcheck:
+      test: "curl -f http://localhost:18081"
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: always
+    volumes:
+      - /home/docker/homebridge/:/root/.homebridge/
+    depends_on:
+      knxd:
+        condition: service_healthy
+      #redis:
+        #condition: service_healthy
+  knxd:
+    image: spanghf37/knxd:amd64
+    restart: always
+    #build: .
+    network_mode: host
+    #links:
+      # Link to MYSQL DB (see below)
+      #- db
+      #- redis
+    healthcheck:
+      test: "/home/docker-healthcheck"
+      interval: 5s
+      retries: 10
+
+volumes:
+  #knxd:
+  homebridge:
+  knx_control:
