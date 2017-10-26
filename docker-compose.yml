@@ -2,8 +2,8 @@ version: '2.1'
 
 services:
   
-  # knx_control
-  knx_control:
+  # knx-control
+  knx-control:
     build: .
     restart: always
     network_mode: host
@@ -14,7 +14,7 @@ services:
       #retries: 20
     restart: always
     volumes:
-      - /home/docker/knx_control:/home/node/app
+      - /home/docker/knx-control:/home/node/app
     depends_on:
       knxd:
         condition: service_healthy
