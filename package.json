@@ -1,14 +1,14 @@
 {
   "name": "knx_control",
   "version": "0.1.0",
-  "description": "knx_control",
+  "description": "knx-control",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spanghf37/knx_control"
+    "url": "https://github.com/spanghf37/knx-control"
   },
   "dependencies": {
     "dotenv": "^4.0.0"
