@@ -14,7 +14,7 @@ services:
       retries: 20
     restart: always
     volumes:
-      - /home/docker/knx-control:/home/node/app
+      - ./:/home/node/app
     depends_on:
       knxd:
         condition: service_healthy
@@ -33,7 +33,7 @@ services:
       retries: 20
     restart: always
     volumes:
-      - /home/docker/knx-control/config:/root/.homebridge/
+      - ./config:/root/.homebridge/
     depends_on:
       knxd:
         condition: service_healthy
@@ -41,10 +41,8 @@ services:
     image: spanghf37/knxd:amd64
     restart: always
     volumes:
-      - /home/docker/knx-control/config:/etc/knxd/
+      - ./config:/etc/knxd/
     network_mode: host
-    #links:
-      #- db
     healthcheck:
       test: "/home/docker-healthcheck"
       interval: 5s
