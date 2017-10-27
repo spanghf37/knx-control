@@ -1,5 +1,5 @@
 # knx-control node app
-Composed of 3 dockers set by docker-compose:
+Composed of 3 dockers set by docker-compose and monitored by healthchecks:
 - knx-control main node app
 - knxd (https://github.com/spanghf37/knxd)
 - homebridge-knx (https://github.com/spanghf37/homebridge-knx)
@@ -15,7 +15,14 @@ Export CSV to JSON (http://www.csvjson.com/csv2json) - CSV saved as UTF8 with No
 knx_ga_groupname,knx_ga_address,knx_ga_central,knx_ga_unfiltered,knx_ga_description,knx_ga_datapointtype,knx_ga_security,knx_ga_id,knx_ga_value,knx_ga_dptsubtypeunit,knx_ga_timestamp,knx_ga_src
 ```
 
-# 3. Edit iptables (firewall) rules
+# 3. Docker containers installation
+On Docker host, run: ```
+git clone https://github.com/spanghf37/knx-control.git
+cd knx-control
+docker-compose up
+```
+
+# 4. Edit iptables (firewall) rules
 On Photon OS (VMWare), edit script ```iptables``` under ```/etc/systemd/scripts``` and add the following at the end of file:
 
 ```
