@@ -43,7 +43,8 @@ services:
   knxd:
     image: spanghf37/knxd:amd64
     restart: always
-    #build: .
+    volumes:
+      - /home/docker/knx-control/config:/etc/knxd/
     network_mode: host
     #links:
       #- db
@@ -53,5 +54,6 @@ services:
       retries: 10
 
 volumes:
-  homebridge:
   knx-control:
+  homebridge:
+  knxd:
