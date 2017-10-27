@@ -2,16 +2,15 @@ version: '2.1'
 
 services:
   
-  # knx-control
   knx-control:
     build: .
     restart: always
     network_mode: host
-    #healthcheck:
-      #test: "curl -f http://localhost:18081"
-      #interval: 5s
-      #timeout: 5s
-      #retries: 20
+    healthcheck:
+      test: "node /node_modules/healthcheck.js"
+      interval: 5s
+      timeout: 5s
+      retries: 20
     restart: always
     volumes:
       - /home/docker/knx-control:/home/node/app
@@ -22,7 +21,6 @@ services:
         condition: service_healthy
     command: ["npm", "start"]
         
-  # homebridge-knx
   homebridge-knx:
     image: spanghf37/homebridge-knx:amd64
     restart: always
@@ -38,8 +36,6 @@ services:
     depends_on:
       knxd:
         condition: service_healthy
-      #redis:
-        #condition: service_healthy
   knxd:
     image: spanghf37/knxd:amd64
     restart: always
