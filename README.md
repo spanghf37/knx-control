@@ -6,7 +6,7 @@ Composed of 3 dockers set by docker-compose:
 
 # 1. Configuration files
 
-Copy and edit ```/config/config.json``` and ```/config/knx_config.json```.
+Copy and edit ```/config/config.json``` and ```/config/knx_config.json``` and ```/config/knxd.ini```.
 
 # 2. /config/ets.json
 Edit/update file ```/config/ets.json```.
