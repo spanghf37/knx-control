@@ -2,7 +2,7 @@ require('dotenv').config();
 var ets = require("./ets"); // JSON export from ETS CSV export
 var knx = require('knx');
 //var dpts = require('knx/src/dptlib'); // pour utilisation fonction "dpts.fromBuffer()" qui permet de convertir données buffer KNX dans les unités du DPT correspondant
-var module_myknx = require('module_myknx');
+var myknx = require('myknx');
 
 var myknxconnection = knx.Connection({
 	ipAddr: process.env.KNXROUTER_HOST,
@@ -26,7 +26,7 @@ var myknxconnection = knx.Connection({
 			function checkdp(dest) {
 				var dp = new knx.Datapoint({
 					ga: dest.toString(),
-					dpt: module_myknx.knxgaTodpt(dest, ets)
+					dpt: myknx.knxgaTodpt(dest, ets)
 				}, myknxconnection);
 				dp.read((src, value) => {
 					console.log("**** GA %j reports current value: %j", dest.toString(), value);
@@ -56,19 +56,19 @@ var myknxconnection = knx.Connection({
 			function setlogicledpool(logicga, coverposition, ledpoolswitch, ledpoolstate) {
 				var dplogicga = new knx.Datapoint({
 					ga: logicga.toString(),
-					dpt: module_myknx.knxgaTodpt(logicga, ets)
+					dpt: myknx.knxgaTodpt(logicga, ets)
 				}, myknxconnection);
 				var dpcoverposition = new knx.Datapoint({
 					ga: coverposition.toString(),
-					dpt: module_myknx.knxgaTodpt(coverposition, ets)
+					dpt: myknx.knxgaTodpt(coverposition, ets)
 				}, myknxconnection);
 				var dpledpoolswitch = new knx.Datapoint({
 					ga: ledpoolswitch.toString(),
-					dpt: module_myknx.knxgaTodpt(ledpoolswitch, ets)
+					dpt: myknx.knxgaTodpt(ledpoolswitch, ets)
 				}, myknxconnection);
 				var dpledpoolstate = new knx.Datapoint({
 					ga: ledpoolstate.toString(),
-					dpt: module_myknx.knxgaTodpt(ledpoolstate, ets)
+					dpt: myknx.knxgaTodpt(ledpoolstate, ets)
 				}, myknxconnection);
 				dpcoverposition.read((src, value) => {
 					if (value === 255) { //rideau fermé
@@ -95,7 +95,7 @@ var myknxconnection = knx.Connection({
 		},
 		event: function(evt, src, dest, value) {
 			console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
-			module_myknx.insert_emoncms(evt, src, dest, value);
+			myknx.insert_emoncms(evt, src, dest, value);
 		},
 		error: function(connstatus) {
 			console.log("**** ERROR: %j", connstatus);
