@@ -34,7 +34,7 @@ services:
       retries: 20
     restart: always
     volumes:
-      - /home/docker/homebridge/:/root/.homebridge/
+      - /home/docker/knx-control/config:/root/.homebridge/
     depends_on:
       knxd:
         condition: service_healthy
@@ -46,15 +46,12 @@ services:
     #build: .
     network_mode: host
     #links:
-      # Link to MYSQL DB (see below)
       #- db
-      #- redis
     healthcheck:
       test: "/home/docker-healthcheck"
       interval: 5s
       retries: 10
 
 volumes:
-  #knxd:
   homebridge:
   knx-control:
