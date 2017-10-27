@@ -1,6 +1,10 @@
-# knx_control
+# knx-control node app
+Composed of 3 dockers set by docker-compose:
+- knx-control main node app
+- knxd (https://github.com/spanghf37/knxd)
+- homebridge-knx (https://github.com/spanghf37/homebridge-knx)
 
-1. Configuration files
+# 1. Configuration files
 
 Copy and edit ```/config/config.json``` and ```/config/knx_config.json```.
 
