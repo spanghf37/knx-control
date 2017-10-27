@@ -6,6 +6,7 @@ services:
     build: .
     restart: always
     network_mode: host
+    #healthcheck script will check connection to KNX group address "0/1/1" (DPT1) - change in /node_modules/healthcheck.js
     healthcheck:
       test: "node node_modules/healthcheck.js"
       interval: 5s
