@@ -16,7 +16,8 @@ knx_ga_groupname,knx_ga_address,knx_ga_central,knx_ga_unfiltered,knx_ga_descript
 ```
 
 # 3. Docker containers installation
-On Docker host, run: ```
+On Docker host, run: 
+```
 git clone https://github.com/spanghf37/knx-control.git
 cd knx-control
 docker-compose up
