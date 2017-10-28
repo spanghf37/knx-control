@@ -96,6 +96,10 @@ var myknxconnection = knx.Connection({
 		event: function(evt, src, dest, value) {
 			console.log('*** knx.Connection event : ' + evt.toString() + ' source : ' + src.toString() + ' destination : ' + dest.toString() + ' hex value : ' + value.toString('hex'));
 			myknx.insert_emoncms(evt, src, dest, value);
+			setTimeout(function() {
+			console.log("Timed out");
+			process.exit(1);
+			}, 2000);
 		},
 		error: function(connstatus) {
 			console.log("**** ERROR: %j", connstatus);
