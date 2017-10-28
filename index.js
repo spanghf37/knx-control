@@ -99,6 +99,7 @@ var myknxconnection = knx.Connection({
 		},
 		error: function(connstatus) {
 			console.log("**** ERROR: %j", connstatus);
+			process.exit(1);
 		}
 	}
 });
