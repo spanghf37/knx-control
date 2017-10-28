@@ -11,12 +11,12 @@ var myknxconnection = knx.Connection({
 	//interface: 'eth0',
 	//useMulticastTunneling: true,
 	physAddr: process.env.KNX_SOURCEADDRESS,
+				myknxconnection.on('unacknowledged', function () {
+				console.log("Essai unacknowledged");
+			});
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
-			myknxconnection.on('unacknowledged', function () {
-				console.log("Essai unacknowledged");
-			});
 
 			function datetime() {
 				myknxconnection.write("8/0/10", new Date(), "DPT10.001");
