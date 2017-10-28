@@ -1,4 +1,3 @@
-//require('dotenv').config();
 require('dotenv').config({path: './node_modules/.env'})
 var ets = require("./config/ets"); // JSON export from ETS CSV export
 var knx = require('knx');
@@ -8,7 +7,7 @@ var myknx = require('myknx');
 var myknxconnection = knx.Connection({
 	ipAddr: process.env.KNXROUTER_HOST,
 	ipPort: process.env.KNXROUTER_PORT,
-	debug: true,
+	//debug: true,
 	//interface: 'eth0',
 	//useMulticastTunneling: true,
 	physAddr: process.env.KNX_SOURCEADDRESS,
