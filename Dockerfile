@@ -12,7 +12,7 @@ RUN curl https://bitbucket.org/spanghf37/knx.js/raw/4bb42f309b9eb3e2e4c064c28ed5
 # Error handling (connection timing out after 3 tries)
 RUN rm /node_modules/knx/src/FSM.js
 WORKDIR /node_modules/knx/src
-RUN curl https://bitbucket.org/spanghf37/knx.js/raw/4bb42f309b9eb3e2e4c064c28ed5c2cb73efab82/src/FSM.js -o "FSM.js"
+RUN curl https://bitbucket.org/spanghf37/knx.js/raw/e918bd3245e47063e9b0a4dd4c1b880bb87fbb8f/src/FSM.js -o "FSM.js"
 
 WORKDIR /home/node/app
 
