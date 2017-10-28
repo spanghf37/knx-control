@@ -14,6 +14,9 @@ var myknxconnection = knx.Connection({
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
+			connection.on('unacknowledged', function () {
+				console.log("Essai unacknowledged");
+			});
 
 			function datetime() {
 				myknxconnection.write("8/0/10", new Date(), "DPT10.001");
