@@ -11,9 +11,6 @@ var myknxconnection = knx.Connection({
 	//interface: 'eth0',
 	//useMulticastTunneling: true,
 	physAddr: process.env.KNX_SOURCEADDRESS,
-				myknxconnection.on('unacknowledged', function () {
-				console.log("Essai unacknowledged");
-			});
 	handlers: {
 		connected: function() {
 			console.log('*** knx.Connection : connected to KNX bus');
@@ -106,3 +103,7 @@ var myknxconnection = knx.Connection({
 		}
 	}
 });
+
+myknxconnection.on('unacknowledged', function () {
+				console.log("Essai unacknowledged");
+			});
