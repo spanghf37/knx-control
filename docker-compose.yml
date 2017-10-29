@@ -16,10 +16,8 @@ services:
     volumes:
       - ./:/home/node/app
     depends_on:
-      knxd:
-        condition: service_healthy
-      homebridge-knx:
-        condition: service_healthy
+      - knxd:
+      - homebridge-knx:
     command: ["npm", "start"]
         
   homebridge-knx:
@@ -35,8 +33,7 @@ services:
     volumes:
       - ./config:/root/.homebridge/
     depends_on:
-      knxd:
-        condition: service_healthy
+      - knxd:
   knxd:
     image: spanghf37/knxd:amd64
     restart: always
