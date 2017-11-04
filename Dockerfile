@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM arm64v8/node:latest
 
 RUN npm install knx request dotenv
 
