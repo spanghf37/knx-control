@@ -385,6 +385,46 @@
 				}]
 			}]
 		},
+        {
+                "DeviceName": "Filtration lente piscine",
+                "Services": [
+                        {
+                                "ServiceType": "Switch",
+                                "ServiceName": "Filtration lente piscine",
+                                "Characteristics": [
+                                        {
+                                                "Type": "On",
+                                                "Set": [
+                                                        "2/4/20"
+                                                ],
+                                                "Listen": [
+                                                        "2/4/21"
+                                                ]
+                                        }
+                                ]
+                        }
+                ]
+        },
+        {
+                "DeviceName": "Filtration normale piscine",
+                "Services": [
+                        {
+                                "ServiceType": "Switch",
+                                "ServiceName": "Filtration normale piscine",
+                                "Characteristics": [
+                                        {
+                                                "Type": "On",
+                                                "Set": [
+                                                        "2/4/22"
+                                                ],
+                                                "Listen": [
+                                                        "2/4/23"
+                                                ]
+                                        }
+                                ]
+                        }
+                ]
+        },
 		{
 			"DeviceName": "Nettoyage piscine",
 			"Services": [{
