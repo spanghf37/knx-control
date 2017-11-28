@@ -1,4 +1,4 @@
-FROM arm64v8/node:latest
+FROM arm32v7/node:latest
 
 RUN npm install knx request dotenv
 
