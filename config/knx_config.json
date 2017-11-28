@@ -1,5 +1,5 @@
 {
-	"knxd_ip": "192.168.0.30",
+	"knxd_ip": "192.168.0.40",
 	"knxd_port": 6720,
 	"AllowWebserver": true,
 	"AllowKillHomebridge": true,
