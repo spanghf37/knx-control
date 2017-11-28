@@ -21,7 +21,7 @@ services:
     command: ["npm", "start"]
         
   homebridge-knx:
-    image: spanghf37/homebridge-knx:arm64
+    image: spanghf37/homebridge-knx:arm32
     restart: always
     network_mode: host
     healthcheck:
@@ -35,7 +35,7 @@ services:
     depends_on:
       - knxd
   knxd:
-    image: spanghf37/knxd:arm64
+    image: spanghf37/knxd:arm32
     restart: always
     volumes:
       - ./config:/etc/knxd/
