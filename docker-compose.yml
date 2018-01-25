@@ -8,7 +8,7 @@ services:
     network_mode: host
     #healthcheck script will check last updated time of a designated feed in EMONCMS configured in .env file
     healthcheck:
-      test: "node node_modules/healthcheck.js"
+      test: "node /home/node/app/node_modules/healthcheck.js"
       interval: 5s
       timeout: 5s
       retries: 20
